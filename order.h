@@ -214,7 +214,12 @@ void printReceipt(vector<MenuItem> &m, double &subtotal, double &total)
   int day = tPtr->tm_mday;
   int month = tPtr->tm_mon + 1;
   int year = tPtr->tm_year + 1900;
-  string currentDate = to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+  int hour = tPtr->tm_hour;
+  int minute = tPtr->tm_min;
+  int second = tPtr->tm_sec;
+  
+  string currentDate = to_string(day) + "-" + to_string(month) + "-" + to_string(year) + "-"
+          + to_string(hour) + "-" + to_string(minute) + "-" + to_string(second);
 
   cout << KRED << UNDL("\n\nReceipt") << RST << endl;
   cout << KBLU << BOLD("Quantity         Item           Price") << RST << endl;
@@ -231,7 +236,7 @@ void printReceipt(vector<MenuItem> &m, double &subtotal, double &total)
   cout << KBLU << BOLD("Total: $") << setprecision(2) << fixed << KBLU << total << RST << endl;
   
   ofstream myFile;
-  myFile.open ("receipt" + currentDate + ".html", ios_base::app); //creating html file with current date
+  myFile.open ("receipt" + currentDate + ".html"); //creating html file with current date
   myFile << "<!DOCTYPE html><html><head></head><body>";
   myFile << "<h1>Restaurant Reciept</h1>" << endl;
   myFile << "<pre style='color:green; font-size:150%;'>Quantity     Item       Price</pre>" << endl;
