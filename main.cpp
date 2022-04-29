@@ -1,4 +1,12 @@
-//A  Restaurant Project Struct style Dr_T Dr. Tyson McMillan 10-2-2019
+//Student Name: Robert Woolard
+
+//Instructor: Dr. Tyson McMillan
+
+//COSC-1437-58002
+
+//Date 04/29/2022
+
+//Sturct Style Menu forked from Dr. T
 
 #include "order.h"
 
